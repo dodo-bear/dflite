@@ -4,9 +4,14 @@ public class WorldGrid {
     
     String name = "New World";
     long playTime = 0;
-    GridSquare[][] grid = new GridSquare[256][256];
+    GridSquare[][] grid;
     static ArrayList<GridSquare> allGridSquares = new ArrayList<GridSquare>();
-    public WorldGrid(String name) {
+    int xSize;
+    int ySize;
+    public WorldGrid(String name, int xSize, int ySize) {
+    	grid = new GridSquare[xSize][ySize];
+    	this.xSize = xSize;
+    	this.ySize = ySize;
         this.name = name;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -47,5 +52,11 @@ public class WorldGrid {
     }
     public GridSquare getSquare(int x, int y) {
     	return grid[x][y];
+    }
+    public int getXSize() {
+    	return xSize;
+    }
+    public int getYSize() {
+    	return ySize;
     }
 }

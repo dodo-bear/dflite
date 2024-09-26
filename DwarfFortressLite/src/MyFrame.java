@@ -92,8 +92,10 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
 	          displayGrid[curX][curY].refreshDisplayInfo();
 	          JLabel curlabel = ((JLabel)panelHolder[curX][curY].getComponents()[0]);
 	          GraphicsEntity currentGraphics = displayGrid[curX][curY].getGraphics();
-	          curlabel.setText(currentGraphics.getDisplayChar() + "");
+	          
+	          curlabel.setText(String.valueOf(currentGraphics.getDisplayChar()));
 	          curlabel.setForeground(currentGraphics.getDisplayColor());
+	          
 	          currentSquare++;
 	          curY++;
 	          }catch(Exception e){
