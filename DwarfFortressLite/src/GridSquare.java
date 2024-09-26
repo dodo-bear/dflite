@@ -15,6 +15,7 @@ public class GridSquare {
     WorldGrid world;
     char displayChar = '\u2588';
     Color displayColor = Color.MAGENTA;
+    GridObject oldobj;
 
     public GridSquare(int x, int y, WorldGrid world) {
         xCoord = x;
@@ -79,12 +80,13 @@ public class GridSquare {
         if(this.getObjects().length < 1){
             addObject(new GridObject("Background", 1, "A default object. You should not be seeing this.", "Background", 7, '\u2588',Color.GREEN, this));
         }
-        GridObject oldobj = objects.get(0);
+        
         objects.sort(new GridObjectComparator());
         if(objects.get(0) != oldobj) {
         	displayChar = objects.get(0).getDisplayChar();
         	displayColor = objects.get(0).getDisplayColor();
         }
+        oldobj = objects.get(0);
         
         
         /*for (GridObject obj : this.getObjects()) {
@@ -97,10 +99,10 @@ public class GridSquare {
         displayColor = getObjects()[priorities.indexOf(Collections.min(Arrays.asList(objectToIntArray(priorities.toArray()))))].getDisplayColor();
         */
     }
-    private Integer[] objectToIntArray( Object[] objectArray){
+    /*private Integer[] objectToIntArray( Object[] objectArray){
         Integer[] integers = Arrays.copyOf(objectArray, objectArray.length, Integer[].class);
         return integers;
-    }
+    }*/
 
     public void addObject(GridObject obj) {
         if(this.findObjectsWithType("Structure").length == 0){

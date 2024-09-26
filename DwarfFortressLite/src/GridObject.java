@@ -23,7 +23,7 @@ public class GridObject {
         count = 1;
         description = "Default Description";
         type = "DefaultType";
-        viewPriority = 0;
+        viewPriority = 8;
         displayChar = '\u2588';
     }
     public GridSquare getSquare() {
@@ -58,5 +58,9 @@ public class GridObject {
     }
     public Color getDisplayColor() {
         return displayColor;
+    }
+    
+    public String toString() {
+    	return name + ", Count: " + count + ", Type: " + type;
     }
 }

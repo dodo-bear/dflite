@@ -3,7 +3,11 @@ import javax.swing.*;
 
 public class MyFrame extends JFrame {
 
-  GridSquare[][] displayGrid = new GridSquare[32][32];
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+GridSquare[][] displayGrid = new GridSquare[32][32];
   char[][] graphicsGrid = new char[32][32];
   WorldGrid world;
   ControlHandler controls;
@@ -75,7 +79,8 @@ public class MyFrame extends JFrame {
     mainPanel.setVisible(true);
     paintPanel.setVisible(true);
   }
-  public void refreshGraphics(int startX, int startY){
+  public long refreshGraphics(int startX, int startY){
+	  long t = System.nanoTime();
 	  GridSquare[][] displayGrid = new GridSquare[32][32];
 	    int currentSquare = 0;
 	    int curX = 0;
@@ -92,12 +97,13 @@ public class MyFrame extends JFrame {
 	          currentSquare++;
 	          curY++;
 	          }catch(Exception e){
-	            //System.out.println("Error in refreshGraphics at square " + currentSquare + ": ");
-	            //e.printStackTrace();
+	            System.out.println("Error in refreshGraphics at square " + currentSquare + ": ");
+	            e.printStackTrace();
 	          }
 	        }
 	        curX++;
 	      }
+	     return System.nanoTime() - t;
   }
   public ControlHandler getControls(){
     return controls;

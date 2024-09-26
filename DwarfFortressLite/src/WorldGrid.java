@@ -45,4 +45,7 @@ public class WorldGrid {
     public String getName() {
         return name;
     }
+    public GridSquare getSquare(int x, int y) {
+    	return grid[x][y];
+    }
 }

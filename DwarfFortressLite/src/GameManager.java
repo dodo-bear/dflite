@@ -61,12 +61,14 @@ public class GameManager {
 			lastime = now;
             frames++;
             
-            window.refreshGraphics(checkCoords((int)x, (int)y).x, checkCoords((int)x, (int)y).y);
+            long elapsedt = window.refreshGraphics(checkCoords((int)x, (int)y).x, checkCoords((int)x, (int)y).y);
 			if(delta >= 1) {
                 if(paused == false){
                     //GameUpdate();
                 	x += controls.getYMove();
                     y += controls.getXMove();
+                    x = checkCoords((int)x, (int)y).x;
+                    y = checkCoords((int)x, (int)y).y;
                     ControlUpdate();
                     if(countDownToTick == 5) {
                     	GameUpdate();
@@ -78,7 +80,7 @@ public class GameManager {
 				ticks++;
 				delta--;
 				if(System.currentTimeMillis() - time >= 1000) {
-					System.out.println("fps: " + frames + " tps: " + ticks + ", Current coordinates: " + checkCoords((int)x, (int)y).x + ", " + checkCoords((int)x, (int)y).y);
+					System.out.println("fps: " + frames + " tps: " + ticks + ", mspf: " + elapsedt/1000000f + ", Current coordinates: " + checkCoords((int)x, (int)y).x + ", " + checkCoords((int)x, (int)y).y + " PriorityObject: " + world.getSquare(checkCoords((int)x, (int)y).x, checkCoords((int)x, (int)y).y).getObjects()[0]);
 					time += 1000;
 					ticks = 0;
 				}
