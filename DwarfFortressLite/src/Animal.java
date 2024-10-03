@@ -32,8 +32,8 @@ public class Animal extends GridObject {
         if(num < 0){
             return 0;
         }
-        else if(num > 255){
-            return 255;
+        else if(num > grid.getXSize()-1){
+            return grid.getXSize()-1;
         }
         else return num;
     }
