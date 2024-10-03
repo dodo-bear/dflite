@@ -58,6 +58,8 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
     textPanel.setBackground(Color.BLACK);
     sidePanelLeft.add(paintPanel);
     sidePanelLeft.add(textPanel);
+    
+    //Generate the display grid
     for(int i = 0; i < 32; i ++){
       for(int j = 0; j < 32; j ++)  {
         panelHolder[i][j] = new JPanel();
@@ -68,6 +70,7 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
         
       }
     }
+    
     paintPanel.setLayout(layout);
     mainPanel.add(sidePanelLeft);
     mainPanel.add(sidePanelRight);
@@ -79,7 +82,8 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
     mainPanel.setVisible(true);
     paintPanel.setVisible(true);
   }
-  public long refreshGraphics(int startX, int startY){
+  
+  public long refreshGraphics(int startX, int startY){ //Tells all visible grid squares to attempt to recalculate their display info
 	  long t = System.nanoTime();
 	  GridSquare[][] displayGrid = new GridSquare[32][32];
 	    int currentSquare = 0;

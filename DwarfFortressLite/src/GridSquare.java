@@ -23,7 +23,7 @@ public class GridSquare {
         this.world = world;
         refreshDisplayInfo();
     }
-    private GridObject[] objectArrayConvert(Object[] startingObjects){
+    private GridObject[] objectArrayConvert(Object[] startingObjects){//QOL method that lets me return a toArray output
         GridObject[] gridObjects = Arrays.copyOf(startingObjects, startingObjects.length, GridObject[].class);
         return gridObjects;
     }
@@ -51,7 +51,7 @@ public class GridSquare {
         return Arrays.copyOf(objs.toArray(), objs.toArray().length, GridObject[].class);
     }
 
-    public void findAdjacencies(GridSquare[][] grid) {
+    public void findAdjacencies(GridSquare[][] grid) { //Store adjacent squares to be referenced when moving objects
         try {
             upSquare = grid[this.xCoord -1][this.yCoord];
         } catch (Exception e) {
@@ -75,13 +75,13 @@ public class GridSquare {
         neighbors = new GridSquare[] { upSquare, downSquare, leftSquare, rightSquare };
     }
 
-    public void refreshDisplayInfo() {
+    public void refreshDisplayInfo() { //Called by graphics, attempts to recalculate display data
         //ArrayList<Integer> priorities = new ArrayList<Integer>();
-        if(this.getObjects().length < 1){
+        if(this.getObjects().length < 1){ //Default object to stop loading errors from crashing the game entirely
             addObject(new GridObject("Background", 1, "A default object. You should not be seeing this.", "Background", 7, '\u2588',Color.GREEN, this));
         }
         
-        objects.sort(new GridObjectComparator());
+        objects.sort(new GridObjectComparator());//Sorts based on display priority and only acts if this changes anything for performance
         if(objects.get(0) != oldobj) {
         	displayChar = objects.get(0).getDisplayChar();
         	displayColor = objects.get(0).getDisplayColor();

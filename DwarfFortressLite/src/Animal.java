@@ -21,7 +21,7 @@ public class Animal extends GridObject {
         this.roamDistance = roamDistance;
         this.grid = grid;
         this.maxSatiety = (int)(Math.round((maxSatiety * 0.8)) + (int)(Math.random() * ((maxSatiety * 1.2 - maxSatiety * 0.8) + 1)));
-        this.maxAge = maxAge * (int)((Math.random() * 4) + 8);
+        this.maxAge = maxAge;
         this.maxHealth = maxHealth * (int)((Math.random() * 4) + 8);
         this.currentHealth = maxHealth;
         this.currentAge = 0;
@@ -58,7 +58,7 @@ public class Animal extends GridObject {
     public GridSquare Move(){
         currentSatiety--;
         turnsAlive ++;
-        if(turnsAlive >= 100){currentAge++;turnsAlive = 0;}
+        if(turnsAlive >= 50){currentAge++;turnsAlive = 0;}
         if(currentSatiety <= 0 || currentHealth <= 0 || currentAge > maxAge){
             //Die
             die();
