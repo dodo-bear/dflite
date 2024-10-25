@@ -12,7 +12,7 @@ import java.util.Arrays;
  * 7. Background
  * 
  * 
- * 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 ////
+ * 
 */
 public class GameManager {
     static long last_time = System.nanoTime();

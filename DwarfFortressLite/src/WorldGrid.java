@@ -24,7 +24,6 @@ public class WorldGrid {
                     System.out.println("Failed to create GridSquare " + i + "," + j + ". " );
                 }
             }
-
         }
         System.out.println("Finding Adjacencies");
         for (GridSquare gridSquare : allGridSquares) {
@@ -38,9 +37,6 @@ public class WorldGrid {
         for(int i = 0; i < 32; i++){
                 grid[0][0].addObject(new Animal(this, "Default Animal", 1, "A default animal", "Animal", 2, '@', Color.WHITE, grid[0][0], 10, 10, new Random().nextInt(2)+1, 100));
         }
-        //grid[0][0].addObject(new Animal(this, "Default Animal", 1, "A default animal", "Animal", 0, 'X', Color.GRAY, grid[0][0], 10));
-        
-        //grid[1][3].addObject(new GridObject("Default Object 1",1,"A default object. You should not be seeing this.","DefaultType",0,'+',Color.MAGENTA, grid[1][3]));
     }
     public GridSquare[][] getGrid() {
         return grid;

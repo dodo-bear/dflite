@@ -43,7 +43,7 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
     sidePanelLeft = new JPanel();
     sidePanelLeft.setBackground(Color.BLACK);
     sidePanelLeft.setLayout(new BoxLayout(sidePanelLeft, BoxLayout.Y_AXIS));
-    sidePanelLeft.setPreferredSize(new Dimension(40, 40));
+    sidePanelLeft.setMaximumSize(new Dimension(380, 1000));
     
     sidePanelRight = new JPanel();
     sidePanelRight.setBackground(Color.MAGENTA);
@@ -53,7 +53,7 @@ GridSquare[][] displayGrid = new GridSquare[32][32];
     
     paintPanel = new JPanel();
     textPanel = new JPanel();
-    paintPanel.setMaximumSize(new Dimension(600, 34000));
+    paintPanel.setPreferredSize(new Dimension(400, 400));
     paintPanel.setBackground(Color.BLACK);
     textPanel.setBackground(Color.BLACK);
     sidePanelLeft.add(paintPanel);
